@@ -1,0 +1,8 @@
+{% extends "Blog/index.html" %}
+
+{{ post.title }}
+
+<h1>{{ post.title }}</h1>
+    <h2>{{ post.body }}</h2>
+<p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+{{ post.body|linebreaks }}
