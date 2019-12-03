@@ -1,0 +1,18 @@
+{% extends 'Blog/index.html' %}
+
+
+
+
+
+<div class="row bottom tags-wrap">
+            <div class="col-full tags">
+                <h3>Tags Filter</h3>
+{% for post in post %}
+            {% for tags in tags %}
+                    <a href="{% url 'blog:tagdet' slug=post.slug %}">{{ tags.title }}</a>
+                {% endfor %}
+{% endfor %}
+
+            </div> <!-- end tags -->
+        </div> <!-- end tags-wrap -->
+

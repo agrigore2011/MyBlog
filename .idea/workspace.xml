@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43b67b5c-a5dc-484f-a48c-c6e439ad9a1f" name="Default Changelist" comment="" />
+    <list default="true" id="43b67b5c-a5dc-484f-a48c-c6e439ad9a1f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/Blog/category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Blog/post/tag_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyLostBlog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyLostBlog/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyLostBlog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyLostBlog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fonts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Blog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Blog/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Blog/post/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Blog/post/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Blog/post/single-standard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Blog/post/single-standard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Blog/post/tags_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Blog/post/tags_list.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,13 +36,14 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/MyLostBlog1" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1TIQA3NQQEO7FKAsR1E88v6w9Es" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="D:/Git/bin/git.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -98,6 +115,13 @@
       <workItem from="1574042522108" duration="2758000" />
       <workItem from="1574096145322" duration="3188000" />
       <workItem from="1574130324215" duration="28939000" />
+      <workItem from="1574564368871" duration="331000" />
+      <workItem from="1574648069398" duration="1378000" />
+      <workItem from="1574749385421" duration="17599000" />
+      <workItem from="1574781227033" duration="6130000" />
+      <workItem from="1574836043128" duration="1879000" />
+      <workItem from="1574934457853" duration="14487000" />
+      <workItem from="1575342520292" duration="11340000" />
     </task>
     <servers />
   </component>

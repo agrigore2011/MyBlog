@@ -7,22 +7,22 @@
  * libre baskerville
 ================================================================================ */
 @font-face {
-   font-family: "librebaskerville-regular";
-   src: url("../fonts/librebaskerville/librebaskerville-regular-webfont.woff2") format("woff2"), url("../fonts/librebaskerville/librebaskerville-regular-webfont.woff") format("woff");
+   font-family: "NewBaskervilleC Regular";
+   src: url("../fonts/NewBaskervilleC Regular.otf") format("otf");
    font-style: normal;
    font-weight: normal;
 }
 
 @font-face {
    font-family: "librebaskerville-italic";
-   src: url("../fonts/librebaskerville/librebaskerville-italic-webfont.woff2") format("woff2"), url("../fonts/librebaskerville/librebaskerville-italic-webfont.woff") format("woff");
+   src: url("../fonts/NewBaskervilleC italic.otf") format("otf");
    font-style: normal;
    font-weight: normal;
 }
 
 @font-face {
    font-family: "librebaskerville-bold";
-   src: url("../fonts/librebaskerville/librebaskerville-bold-webfont.woff2") format("woff2"), url("../fonts/librebaskerville/librebaskerville-bold-webfont.woff") format("woff");
+   src: url("../fonts/NewBaskervilleC bold.ttf") format("ttf");
    font-style: normal;
    font-weight: normal;
 }
@@ -32,28 +32,28 @@
 ================================================================================ */
 @font-face {
    font-family: "metropolis-black";
-   src: url("../fonts/metropolis/metropolis-black-webfont.woff2") format("woff2"), url("../fonts/metropolis/metropolis-black-webfont.woff") format("woff");
+   src: url("../fonts/montserrat/Montserrat-Black.otf") format("otf");
    font-style: normal;
    font-weight: normal;
 }
 
 @font-face {
    font-family: "metropolis-black-italic";
-   src: url("../fonts/metropolis/metropolis-blackitalic-webfont.woff2") format("woff2"), url("../fonts/metropolis/metropolis-blackitalic-webfont.woff") format("woff");
+   src: url("../fonts/montserrat/Montserrat-Blackitalic.otf") format("otf");
    font-style: normal;
    font-weight: normal;
 }
 
 @font-face {
    font-family: "metropolis-extrabold";
-   src: url("../fonts/metropolis/metropolis-extrabold-webfont.woff2") format("woff2"), url("../fonts/metropolis/metropolis-extrabold-webfont.woff") format("woff");
+   src: url("../fonts/montserrat/Montserrat-ExtraBold.otf") format("otf");
    font-style: normal;
    font-weight: normal;
 }
 
 @font-face {
    font-family: "metropolis-extrabold-italic";
-   src: url("../fonts/metropolis/metropolis-extrabolditalic-webfont.woff2") format("woff2"), url("../fonts/metropolis/metropolis-extrabolditalic-webfont.woff") format("woff");
+   src: url("../fonts/montserrat/Montserrat-ExtraBoldItalic.otf") format("otf");
    font-style: normal;
    font-weight: normal;
 }

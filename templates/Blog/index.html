@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-
+{% block basic %}
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
@@ -30,10 +30,12 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
 </head>
-<body id="top">
 
+<body id="top">
+{% endblock %}
     <!-- pageheader
     ================================================== -->
+{% block header %}
     <section class="s-pageheader s-pageheader--home">
 
         <header class="header">
@@ -41,7 +43,7 @@
 
                 <div class="header__logo">
                     <a class="logo" href="{% url 'blog:post_list' %}">
-                        <img src="/media/logoza.ru.png" alt="Homepage">
+                        <img src="/media/logo.png" alt="Homepage">
                     </a>
                 </div> <!-- end header__logo -->
 
@@ -88,12 +90,9 @@
                         <li class="has-children">
                             <a href="#0" title="">Categories</a>
                             <ul class="sub-menu">
-                            <li><a href="category.html">Lifestyle</a></li>
-                            <li><a href="category.html">Health</a></li>
-                            <li><a href="category.html">Family</a></li>
-                            <li><a href="category.html">Management</a></li>
-                            <li><a href="category.html">Travel</a></li>
-                            <li><a href="category.html">Work</a></li>
+                                {% for cat in category %}
+                            <li><a href="{% url 'blog:catdet' slug=cat.slug %}">{{cat.title}}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
                         <li class="has-children">
@@ -116,78 +115,56 @@
 
             </div> <!-- header-content -->
         </header> <!-- header -->
-{% for a_post in a_posts %}
-        <div class="pageheader-content row">
+{% endblock %}
+
+{% block index %}
+       <div class="pageheader-content row">
             <div class="col-full">
 
                 <div class="featured">
+                {% for post in posts %}
+                    <div class="featured__column featured__column--{% if forloop.first %}big{% endif %}">
+                        <div class="entry" style="background-image:url('{{post.image.url}}')">
 
-                    <div class="featured__column featured__column--big">
-                        <div class="entry" style="background-image:url({{ a_post.image.url }});">
 
                             <div class="entry__content">
-                                <span class="entry__category"><a href="{{ a_post.category.url }}">{{a_post.category}}</a></span>
 
-                                <h1><a href="#0"> <a href="{{ a_post.get_absolute_url }}"> {{ a_post.title }}</a> </h1>
+                                <span class="entry__category"><a href="{{ category.get_absolute_url }}">{{post.category}}</a></span>
+
+                                <h1><a href="{{ post.get_absolute_url }}" title="">{{ post.title }}</a></h1>
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="images/avatars/user-03.jpg" alt="">
+                                        <img class="avatar" src="{{ post.image.url }}" alt="">
                                     </a>
 
                                     <ul class="entry__meta">
-                                        <li><a href="{{ a_post.author.url }}">{{ a_post.author }}</a></li>
-                                        <li>{{a_post.published}}</li>
+                                        <li><a href="#0">John Doe</a></li>
+                                        <li>December 29, 2017</li>
                                     </ul>
                                 </div>
-
                             </div> <!-- end entry__content -->
 
                         </div> <!-- end entry -->
-{% endfor %}
                     </div> <!-- end featured__big -->
-{% for b_post in b_posts %}
-                    <div class="featured__column featured__column--small">
 
-                        <div class="entry" style="background-image:url({{ b_post.image.url }});">
+                    <div class="featured__column featured__column--{% if forloop.counter0 %}small{% endif %}">
+
+                        <div class="entry" style="background-image:url('{{ post.image.url }}');">
 
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Management</a></span>
+                                <span class="entry__category"><a href="#0">{{post.category}}</a></span>
 
-                                <h1><a href="{{ b_post.get_absolute_url }}" title="">{{ b_post.title }}</a></h1>
+                                <h1><a href="{{ post.get_absolute_url }}" title="">{{ post.title }}</a></h1>
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="images/avatars/user-03.jpg" alt="">
+                                        <img class="avatar" src="{{ post.imgae.url }}" alt="">
                                     </a>
 
                                     <ul class="entry__meta">
-                                        <li><a href="{{ b_post.author.url }}">{{b_post.author}}</a></li>
-                                        <li>{{ b_post.published}}</li>
-                                    </ul>
-                                </div>
-
-                            </div> <!-- end entry__content -->
-{% endfor %}
-                        </div> <!-- end entry -->
-
-{% for c_post in c_posts %}
-
-                        <div class="entry" style="background-image:url({{ c_post.image.url }});">
-
-                            <div class="entry__content">
-                                <span class="entry__category"><a href="#0">LifeStyle</a></span>
-
-                                <h1><a href="{{ c_post.get_absolute_url }}" title="">{{ c_post.title }}</a></h1>
-
-                                <div class="entry__info">
-                                    <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="images/avatars/user-03.jpg" alt="">
-                                    </a>
-
-                                    <ul class="entry__meta">
-                                        <li><a href="#0">{{ c_post.author }}</a></li>
-                                        <li>{{c_post.published}}</li>
+                                        <li><a href="#0">John Doe</a></li>
+                                        <li>December 21, 2017</li>
                                     </ul>
                                 </div>
                             </div> <!-- end entry__content -->
@@ -195,16 +172,21 @@
                         </div> <!-- end entry -->
 
                     </div> <!-- end featured__small -->
-        {% endfor %}
-        </div> <!-- end featured -->
-            </div> <!-- end col-full -->
-        </div> <!-- end pageheader-content row -->
+            {% endfor %}
 
+                </div> <!-- end featured -->
+
+            </div> <!-- end col-full -->
+
+        </div> <!-- end pageheader-content row -->
+       {% endblock %}
     </section> <!-- end s-pageheader -->
+
+
     <!-- s-content
     ================================================== -->
 
-{% block s-content %}
+{% block list_content %}
 {% endblock %}
 
        <div class="row">
@@ -214,10 +196,10 @@
                     <ul>
                         {% if posts.has_previous %}
 
-                        <li><a class="pgn__prev" href="?page={{ posts.previous_page_number }}">Prev</a></li>
+                        <li><a class="pgn__prev" href="?page={{ all_posts.previous_page_number }}">Prev</a></li>
                         {% endif %}
-                    {% for num in posts.paginator.page_range %}
-                    {% if num == posts.number %}
+                    {% for num in all_posts.paginator.page_range %}
+                    {% if num == all_posts.number %}
                         <li><span class="pgn__num current">{{ num }}</span></li>
                     {% else %}
                         <li><a class="pgn__num" href="?page={{ num }}">{{ num }}</a></li>
@@ -237,7 +219,7 @@
     </section> <!-- s-content -->
     <!-- s-extra
     ================================================== -->
-{% block content %}
+{% block pop_content %}
     <section class="s-extra">
 
         <div class="row top">
@@ -300,25 +282,16 @@
 
         </div> <!-- end row -->
 
-            {% block category %}
+
 
 <div class="row bottom tags-wrap">
             <div class="col-full tags">
                 <h3>Tags</h3>
 
                 <div class="tagcloud">
-                    <a href="#0">{{ post.category }}</a>
-                    <a href="#0">Recipe</a>
-                    <a href="#0">Places</a>
-                    <a href="#0">Tips</a>
-                    <a href="#0">Friends</a>
-                    <a href="#0">Travel</a>
-                    <a href="#0">Exercise</a>
-                    <a href="#0">Reading</a>
-                    <a href="#0">Running</a>
-                    <a href="#0">Self-Help</a>
-                    <a href="#0">Vacation</a>
-                </div> <!-- end tagcloud -->
+                    {% for tags in tags %}
+                    <a href="{% url 'blog:tagdet' slug=tags.slug %}">{{ tags.title }}</a>
+                    {% endfor %}
             </div> <!-- end tags -->
         </div> <!-- end tags-wrap -->
 
@@ -326,11 +299,12 @@
 {% endblock %}
 
     </section> <!-- end s-extra -->
-{% endblock %}
+
 </body>
 
     <!-- s-footer
     ================================================== -->
+{% block footer %}
     <footer class="s-footer">
 
         <div class="s-footer__main">
@@ -385,7 +359,7 @@
 
                     <h4>Our Newsletter</h4>
 
-                    <p>Sit vel delectus amet officiis repudiandae est voluptatem. Tempora maxime provident nisi et fuga et enim exercitationem ipsam. Culpa consequatur occaecati.</p>
+                    <p>Дорогие читатели, вы можете оставить свои отзывы предложения и вопросы по данному блогу мне на почту. С удовольствим отвечу на ваши письма</p>
 
                     <div class="subscribe-form">
                         <form id="mc-form" class="group" novalidate="true">
@@ -420,7 +394,7 @@
         </div> <!-- end s-footer__bottom -->
 
     </footer> <!-- end s-footer -->
-
+{% endblock %}
 
     <!-- preloader
     ================================================== -->

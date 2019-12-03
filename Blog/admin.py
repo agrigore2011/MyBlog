@@ -1,5 +1,5 @@
 from django.contrib import admin
-from.models import Post, Wisdom, Category
+from.models import Post, Wisdom, Category, Tag
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -24,4 +24,10 @@ admin.site.register(Post, BlogSummernote)
 admin.site.register(Wisdom)
 admin.site.register(Category)
 
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ["title", "slug"]
+    ordering = ["title", "slug"]
+    search_fields = ["title"]
+    prepopulated_fields = {"slug": ["title"]}
 

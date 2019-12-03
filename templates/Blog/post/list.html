@@ -1,14 +1,14 @@
 {% extends 'Blog/index.html' %}
    <!-- s-extra
     ================================================== -->
-{% block s-content %}
+{% block list_content %}
    <section class="s-content">
 
         <div class="row masonry-wrap">
             <div class="masonry">
 
                 <div class="grid-sizer"></div>
-{% for post in posts %}
+{% for post in all_posts %}
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
 
                     <div class="entry__thumb">
@@ -34,8 +34,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">{{post.category}}</a>
-                                <a href="category.html">Photography</a>
+                                <a href="#">{{post.category}}</a>
                             </span>
                         </div>
                     </div>

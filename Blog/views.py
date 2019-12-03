@@ -1,35 +1,29 @@
-from django.shortcuts import render, get_object_or_404, render_to_response
-from .models import Post, Wisdom
-from django.views.generic.list import ListView
-
-from django.views import View
+from django.shortcuts import render, get_object_or_404
+from .models import Post, Wisdom, Tag, Category
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def post_list(request):
-    posts = Post.objects.all()
-    a_posts = Post.objects.all()[:1]
-    b_posts = Post.objects.all()[:1]
-    c_posts = Post.objects.all()[:1]
+    posts = Post.objects.all()[:3]
+    all_posts = Post.objects.all()
+
     wisdoms=Wisdom.objects.all()
     categorys=Post.objects.all()
-
+    category = Category.objects.all()
     pop_posts = Post.objects.all()[:6]
-
-    paginator = Paginator(posts, 10)
+    tags = Tag.objects.all()
+    paginator = Paginator(all_posts, 10)
     page = request.GET.get('page')
     try:
-        posts = paginator.page(page)
+        all_posts = paginator.page(page)
     except PageNotAnInteger:
 
-        posts = paginator.page(1)
+        all_posts = paginator.page(1)
     except EmptyPage:
 
-        posts = paginator.page(paginator.num_pages)
-    return render(request,'blog/post/list.html', {'page': page, 'posts': posts, 'wisdoms': wisdoms, 'a_posts': a_posts, 'b_posts': b_posts, 'c_posts': c_posts,
-                   'pop_posts': pop_posts, 'categorys': categorys})
-
-
+        all_posts = paginator.page(paginator.num_pages)
+    return render(request,'blog/post/list.html', {'page': page, 'posts': posts, 'all_posts':all_posts, 'wisdoms': wisdoms,
+                   'pop_posts': pop_posts, 'categorys': categorys, 'category':category, 'tags':tags})
 
 
 def post_detail(request, year,month,day,post):
@@ -43,13 +37,22 @@ def post_detail(request, year,month,day,post):
     )
     return render(request, 'Blog/post/single-standard.html', {'post': post})
 
+#filter idet po categoriyam? novosti otobrajaytsa?
 
-'''def tags_list(request):
-    posts = Post.objects.filter(tag=tags_id)
-    tags=Tag.object.all()
-    current_tag=Tag.objects.get(pk=tags.id)
-    context = {'posts': posts, 'tags': tags, 'current_tags': current_tags}
-    return render(request, 'Blog//post/tags_list.html', context)
+def catdet(request, slug):
+    category = Category.objects.get(slug__iexact=slug)
+    context = {
+    'post': Post.objects.filter(category=category)
+    }
 
-'''
 
+    return render(request, 'Blog/category.html', context)
+
+def tagdet(request, slug):
+    tag = Tag.objects.get(slug__iexact=slug)
+    context = {
+        'tags': Post.objects.filter(tag=tag)
+    }
+
+
+    return render(request, 'Blog/post/tag_detail.html', context)
