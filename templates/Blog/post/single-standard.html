@@ -86,28 +86,16 @@
                     <h2 class="header__nav-heading h6">Site Navigation</h2>
 
                     <ul class="header__nav">
-                        <li><a href="index.html" title="">Home</a></li>
+                        <li class="current"><a href="index.html" title="">Home</a></li>
                         <li class="has-children">
                             <a href="#0" title="">Categories</a>
                             <ul class="sub-menu">
-                            <li><a href="category.html">Lifestyle</a></li>
-                            <li><a href="category.html">Health</a></li>
-                            <li><a href="category.html">Family</a></li>
-                            <li><a href="category.html">Management</a></li>
-                            <li><a href="category.html">Travel</a></li>
-                            <li><a href="category.html">Work</a></li>
+                                {% for cat in category %}
+                            <li><a href="{% url 'blog:catdet' slug=cat.slug %}">{{cat.title}}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
-                        <li class="has-children current">
-                            <a href="#0" title="">Blog</a>
-                            <ul class="sub-menu">
-                            <li><a href="single-video.html">Video Post</a></li>
-                            <li><a href="single-audio.html">Audio Post</a></li>
-                            <li><a href="single-gallery.html">Gallery Post</a></li>
-                            <li><a href="single-standard.html">Standard Post</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="style-guide.html" title="">Styles</a></li>
+
                         <li><a href="about.html" title="">About</a></li>
                         <li><a href="contact.html" title="">Contact</a></li>
                     </ul> <!-- end header__nav -->
@@ -208,6 +196,70 @@
     </section>
 
 
+ <!-- comments
+        ================================================== -->
+        <div class="comments-wrap">
+
+            <div id="comments" class="row">
+                <div class="col-full">
+           {% with comments.count as total_comments %}
+
+                    <h3 class="h2">{{ total_comments }} comment{{ total_comments|pluralize }}</h3>
+{% endwith %}
+
+                    <!-- commentlist -->
+                    <ol class="commentlist">
+
+                        <li class="depth-1 comment">
+{% for comment in comments %}
+                            <div class="comment__avatar">
+                                <img width="50" height="50" class="avatar" src="images/avatars/user-01.jpg" alt="">
+                            </div>
+
+                            <div class="comment__content">
+                                <div class="comment__info">
+                                    <cite>I{{ comment.name }}</cite>
+                                    <div class="comment__meta">
+                                        <time class="comment__time">{{ comment.created }}</time>
+                                        <a class="reply" href="#0">Reply</a>
+                                    </div>
+                                </div>
+
+                                <div class="comment__text">
+                                <p>{{ comment.body|linebreaks }}</p>
+                                    {% empty %}
+                                    <p>There are no comments yet.</p>
+                                        {% endfor %}
+                                    {% if new_comment %}
+                                    <h2>Your comment has been added.</h2>
+                                    {% else %}
+                                    <h2>Add a new comment</h2>
+                                    <form action="." method="post">
+                                    {{ comment_form.as_p }}
+                                    {% csrf_token %}
+                                    <p><input type="submit" value="Add comment"></p>
+                                    </form>
+                                    {% endif %}
+                            </div>
+
+                            </div>
+
+                        </li> <!-- end comment level 1 -->
+
+
+                    </ol> <!-- end commentlist -->
+
+
+                    <!-- respond
+                    ================================================== -->
+
+
+                </div> <!-- end col-full -->
+
+            </div> <!-- end row comments -->
+        </div> <!-- end comments-wrap -->
+
+    </section> <!-- s-content -->
 
     <!-- s-footer
     ================================================== -->

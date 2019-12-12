@@ -81,6 +81,7 @@ class Wisdom(models.Model):
     slug = models.SlugField(max_length=250, unique_for_date='published')
     message = models.TextField(max_length= 300, verbose_name='Содержание мысли')
     published = models.DateTimeField(default=timezone.now)
+    author=models.CharField(max_length=30)
 
     class Meta:
         ordering = ('-published',)
@@ -92,3 +93,18 @@ class Wisdom(models.Model):
     def get_absolute_url(self):
         return reverse('Blog:post_detail', args=[self.published.year, self.published.month, self.published.day, self.slug])
 
+
+class Comment(models.Model):
+    post=models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    name=models.CharField(max_length=80)
+    email=models.EmailField()
+    body=models.TextField()
+    created=models.DateTimeField(auto_now_add=True)
+    updated=models.DateTimeField(auto_now=True)
+    active=models.BooleanField(default=True)
+
+    class Meta:
+        ordering=('created',)
+
+    def __str__(self):
+        return 'Comment by {} on {}'.format(self.name, self.post)
