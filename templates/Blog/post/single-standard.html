@@ -136,7 +136,7 @@
                     <li class="date">{{ post.published }}</li>
                     <li class="cat">
                         Категории
-                        <a href="#0">{{post.category}}</a>
+                        <a href="#"> {{post.category}}</a>
 
                     </li>
                 </ul>
@@ -151,6 +151,7 @@
             <div class="col-full s-content__main">
 
                 <p class="lead">{{ post.body|safe }}</p>
+            <p><a class="btn btn--stroke full-width" href="{% url "blog:post_share" post.id %}">Поделиться по e-mail</a>
 
 
 
@@ -205,8 +206,75 @@
             </div> <!-- end s-content__main -->
 
         </article>
-    </section>
 
+
+<!-- comments
+        ================================================== -->
+        <div class="comments-wrap">
+
+            <div id="comments" class="row">
+                <div class="col-full">
+{% with comments.count as total_comments %}
+                    <h3 class="h2"> {{ total_comments }} comment{{ total_comments|pluralize }}</h3>
+{% endwith %}
+                    <!-- commentlist -->
+                    <ol class="commentlist">
+{% for comment in comments %}
+                        <li class="depth-1 comment">
+
+                            <div class="comment__avatar">
+                                <img width="50" height="50" class="avatar" src="images/avatars/user-01.jpg" alt="">
+                            </div>
+
+                            <div class="comment__content">
+
+                                <div class="comment__info">
+                                    <cite> Comment {{ forloop.counter }} by {{ comment.name }}</cite>
+
+                                    <div class="comment__meta">
+                                        <time class="comment__time">{{ comment.created }}</time>
+                                        <a class="reply" href="#0">Reply</a>
+                                    </div>
+                                </div>
+
+                                <div class="comment__text">
+                                <p>{{ comment.body|linebreaks }}</p>
+                                </div>
+
+                            </div>
+
+                        </li> <!-- end comment level 1 -->
+{% empty %}
+    <p>There are no comments yet.</p>
+{% endfor %}
+                    {% if new_comment %}
+<h2>Your comment has been added.</h2>
+{% else %}
+
+                    <!-- respond
+                    ================================================== -->
+                    <div class="respond">
+
+                        <h3 class="h2">Add Comment</h3>
+
+                        <form name="contactForm" id="contactForm" method="post" action="">
+                            <fieldset>
+
+                                {{ comment_form.as_p }}
+                                {% csrf_token %}
+                                <p><input type="submit" value="Add comment"></p>
+
+                            </fieldset>
+                        </form> <!-- end form -->
+
+                    </div> <!-- end respond -->
+
+                </div> <!-- end col-full -->
+
+            </div> <!-- end row comments -->
+        </div> <!-- end comments-wrap -->
+{% endif %}
+    </section> <!-- s-content -->
 
 
     <!-- s-footer
