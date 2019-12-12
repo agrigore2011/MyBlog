@@ -54,7 +54,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 ROOT_URLCONF = 'MyLostBlog.urls'
 
 TEMPLATES = [
@@ -130,11 +129,3 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-
-
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_HOST_USER = 'agrigore2011@gmail.com'
-EMAIL_HOST_PASSWORD = 'Python3.0Agrigore'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True

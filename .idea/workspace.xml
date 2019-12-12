@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43b67b5c-a5dc-484f-a48c-c6e439ad9a1f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Blog/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog/migrations/0007_comment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog/migrations/0008_wisdom_author.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/data-storage-web-20494874-iStock_Henrik4000.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Blog/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Blog/contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Blog/post/share.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ven.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Blog/category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Blog/post/tag_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/models.py" afterDir="false" />
@@ -18,9 +12,11 @@
       <change beforePath="$PROJECT_DIR$/MyLostBlog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyLostBlog/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyLostBlog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyLostBlog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fonts.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Blog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Blog/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Blog/post/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Blog/post/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Blog/post/single-standard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Blog/post/single-standard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Blog/post/tags_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Blog/post/tags_list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,15 +121,7 @@
       <workItem from="1574781227033" duration="6130000" />
       <workItem from="1574836043128" duration="1879000" />
       <workItem from="1574934457853" duration="14487000" />
-      <workItem from="1575342520292" duration="11993000" />
-      <workItem from="1575471413180" duration="7910000" />
-      <workItem from="1575559401892" duration="6676000" />
-      <workItem from="1575566138301" duration="3000" />
-      <workItem from="1575596355213" duration="5360000" />
-      <workItem from="1575814804578" duration="9763000" />
-      <workItem from="1576042277117" duration="1918000" />
-      <workItem from="1576067773216" duration="829000" />
-      <workItem from="1576125071716" duration="1378000" />
+      <workItem from="1575342520292" duration="11340000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from.models import Post, Wisdom, Category, Tag, Comment
+from.models import Post, Wisdom, Category, Tag
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -31,8 +31,3 @@ class TagAdmin(admin.ModelAdmin):
     search_fields = ["title"]
     prepopulated_fields = {"slug": ["title"]}
 
-@admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'post', 'created', 'active')
-    list_filter = ('active', 'created', 'updated')
-    search_fields = ('name', 'email', 'body')
