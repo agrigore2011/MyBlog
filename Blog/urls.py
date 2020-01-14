@@ -8,4 +8,5 @@ urlpatterns = [
     path('category/<str:slug>', catdet, name='catdet'),
     path('tag/<str:slug>', tagdet, name='tagdet'),
     path('<int:post_id>/share/', post_share, name='post_share'),
+    path('about/', about, name='about'),
 ]

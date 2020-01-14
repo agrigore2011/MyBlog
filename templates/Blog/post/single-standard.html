@@ -5,10 +5,10 @@
 
     <!--- basic page needs
     ================================================== -->
-    <meta charset="utf-8">
-    <title>Standard Post Format - Philosophy</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+   <meta charset="utf-8">
+    <title>JunDevBlog</title>
+    <meta name="description" content="Сайт посвящен новичкам программистам на языке python. Статьи, обзоры, полезные материалы и ссылки для новичков">
+    <meta name="author" content="Антон Григорьев">
 
     <!-- mobile specific metas
     ================================================== -->
@@ -86,28 +86,15 @@
                     <h2 class="header__nav-heading h6">Site Navigation</h2>
 
                     <ul class="header__nav">
-                        <li><a href="index.html" title="">Home</a></li>
+                        <li class="current"><a href="{% url 'blog:post_list' %}" title="">Home</a></li>
                         <li class="has-children">
                             <a href="#0" title="">Categories</a>
                             <ul class="sub-menu">
-                            <li><a href="category.html">Lifestyle</a></li>
-                            <li><a href="category.html">Health</a></li>
-                            <li><a href="category.html">Family</a></li>
-                            <li><a href="category.html">Management</a></li>
-                            <li><a href="category.html">Travel</a></li>
-                            <li><a href="category.html">Work</a></li>
+                                {% for cat in category %}
+                            <li><a href="{% url 'blog:catdet' slug=cat.slug %}">{{cat.title}}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
-                        <li class="has-children current">
-                            <a href="#0" title="">Blog</a>
-                            <ul class="sub-menu">
-                            <li><a href="single-video.html">Video Post</a></li>
-                            <li><a href="single-audio.html">Audio Post</a></li>
-                            <li><a href="single-gallery.html">Gallery Post</a></li>
-                            <li><a href="single-standard.html">Standard Post</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="style-guide.html" title="">Styles</a></li>
                         <li><a href="about.html" title="">About</a></li>
                         <li><a href="contact.html" title="">Contact</a></li>
                     </ul> <!-- end header__nav -->

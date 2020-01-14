@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 
@@ -40,7 +41,8 @@ class Post (models.Model):
     slug = models.SlugField(max_length=250, unique_for_date='published')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     image = models.ImageField(upload_to= generate_filename, verbose_name='Изображение')
-    body = models.TextField(verbose_name='Содержание')
+    #body = models.TextField(verbose_name='Содержание')
+    body = RichTextUploadingField(blank=True, null=True)
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)

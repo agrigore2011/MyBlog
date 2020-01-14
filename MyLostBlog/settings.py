@@ -25,7 +25,7 @@ SECRET_KEY = 'cw09c-kh=hg%wp!cedg4_rwc(2zg5qb7n^^i)&7@f_@use&kdz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Blog',
-    'django_summernote',
+    #'django_summernote',
+    'ckeditor',
+    'ckeditor_uploader',
 
 
 ]
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'MyLostBlog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, '/home/agrigore/MyBlog/templates/')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -126,6 +128,13 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+CKEDITOR_CONFIGS = {
+'default':{
+'toolbar': 'None',
+},
+}
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
@@ -135,3 +144,5 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+

@@ -24,7 +24,7 @@ def post_list(request):
     except EmptyPage:
 
         all_posts = paginator.page(paginator.num_pages)
-    return render(request,'blog/post/list.html', {'page': page, 'posts': posts, 'all_posts':all_posts, 'wisdoms': wisdoms,
+    return render(request,'Blog/post/list.html', {'page': page, 'posts': posts, 'all_posts':all_posts, 'wisdoms': wisdoms,
                    'pop_posts': pop_posts, 'categorys': categorys, 'category':category, 'tags':tags})
 
 
@@ -45,7 +45,7 @@ def post_detail(request, year, month, day, post):
     else:
         comment_form = CommentForm()
     return render(request,
-                  'blog/post/single-standard.html',
+                  'Blog/post/single-standard.html',
                  {'post': post,
                   'comments': comments,
                   'comment_form': comment_form})
@@ -90,9 +90,9 @@ def post_share(request, post_id):
             sent = True
     else:
         form = EmailPostForm()
-    return render(request, 'blog/post/share.html', {'post': post,
+    return render(request, 'Blog/post/share.html', {'post': post,
                                                     'form': form,
                                                     'sent': sent})
 
 def about (request):
-    return render(request, 'blog/about.html')
+    return render(request, 'Blog/about.html')

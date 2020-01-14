@@ -6,9 +6,9 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Philosophy</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>JunDevBlog</title>
+    <meta name="description" content="Сайт посвящен новичкам программистам на языке python. Статьи, обзоры, полезные материалы и ссылки для новичков">
+    <meta name="author" content="Антон Григорьев">
 
     <!-- mobile specific metas
     ================================================== -->
@@ -95,7 +95,7 @@
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li><a href="about.html" title="">About</a></li>
+                        <li><a href="{% url 'blog:about' %}" title="">About</a></li>
                         <li><a href="contact.html" title="">Contact</a></li>
                     </ul> <!-- end header__nav -->
 
@@ -347,7 +347,7 @@
 
                 <div class="col-five md-full end s-footer__subscribe">
 
-                    <h4>Our Newsletter</h4>
+                    <h4>Напиши мне</h4>
 
                     <p>Дорогие читатели, вы можете оставить свои отзывы предложения и вопросы по данному блогу мне на почту. С удовольствим отвечу на ваши письма</p>
 
